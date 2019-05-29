@@ -1,4 +1,4 @@
-class Api::V1::SessionsController < ApplicationController
+class V1::SessionsController < ApplicationController
   skip_before_action :authenticate_request, only: :login
 
   def login

@@ -4,16 +4,20 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "2.5.1"
 
 gem "active_model_serializers"
-gem 'bcrypt', '~> 3.1.7'
+gem "bcrypt", "~> 3.1.7"
 gem "rails", "~> 5.2.3"
+gem "pry", "~> 0.12.2"
 gem "mysql2"
 gem "puma", "~> 3.11"
-gem "jwt"
+gem "grape-jwt-authentication"
 gem "figaro"
 gem "grape"
 gem "bootsnap", ">= 1.1.0", require: false
-gem 'simple_command'
+gem "simple_command"
 gem "will_paginate", "~>3.1.0"
+gem "grape-entity"
+gem 'devise'
+gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

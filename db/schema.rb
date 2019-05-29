@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_21_065229) do
+ActiveRecord::Schema.define(version: 2019_06_10_075758) do
+
+  create_table "api_keys", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "access_token"
+    t.datetime "expires_at"
+    t.integer "user_id"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
+    t.string "email"
     t.datetime "date_of_birth"
-    t.boolean "gender"
+    t.integer "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
