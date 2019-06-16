@@ -1,4 +1,4 @@
-class API::V1::Posts < Grape::API
+class V1::Posts < Grape::API
   version 'v1'
   format :json
 
