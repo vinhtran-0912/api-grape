@@ -17,9 +17,18 @@ class V1::Users < Grape::API
       if user && user.authenticate(params[:password])
         key = ApiKey.find_or_create_by(user_id: user.id)
         key.renew_token
+<<<<<<< 06c6b66a7938feb4b5eea10c109e24625a8d1f40
         userData = present user, with: API::Entities::Users
         return {token: key.access_token, user: userData}.as_json
         # present user, with: API::Entities::Users
+=======
+        response = {user: user, token: key.access_token}
+        # return {token: key.access_token, user: userData}
+        # present user, with: API::Entities::Users
+        # binding.pry
+        present response, with: API::Entities::Auth
+
+>>>>>>> init serializer
       else
         error!('Unauthorized.', 401)
       end
